@@ -117,38 +117,18 @@ include('trip.php')
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Kolorado</td>
-                <td>Ameryka Północna</td>
-                <td>USA</td>
-                <td>7 dni</td>
-                <td>19000 PLN</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Alaska</td>
-                <td>Ameryka Północna</td>
-                <td>USA</td>
-                <td>10 dni</td>
-                <td>24000 PLN</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Everest</td>
-                <td>Azja</td>
-                <td>Chiny</td>
-                <td>7 dni</td>
-                <td>22000 PLN</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Alpy</td>
-                <td>Europa</td>
-                <td>Austria</td>
-                <td>6 dni</td>
-                <td>16000 PLN</td>
-            </tr>
+        {% if trips %}
+           {% for elem in trips %}
+        <tr>
+            <th scope="row">{{ elem.getId() }}</th>
+            <td>{{ elem.getName() }}</td>
+            <td>{{ elem.getContinent() }}</td>
+            <td>{{ elem.getCountry() }}</td>
+            <td>{{ elem.getPeriod() }} dni</td>
+            <td>{{ elem.getPrice() }}</td>
+        </tr>
+          {% endfor %}
+        {% endif %}
         </tbody>
     </table>
   </div>
