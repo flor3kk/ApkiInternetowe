@@ -112,38 +112,16 @@ include('trip.php')
             </tr>
         </thead>
         <tbody>
+          <?php foreach ($trips as $elem) { ?>
             <tr>
-                <th scope="row">1</th>
-                <td>Kolorado</td>
-                <td>Ameryka Północna</td>
-                <td>USA</td>
-                <td>7 dni</td>
-                <td>19000 PLN</td>
+                <th scope="row"><?php echo $elem->getId() ?></th>
+                <td><?php echo $elem->getName() ?></td>
+                <td><?php echo $elem->getContinent() ?> </td>
+                <td><?php echo $elem->getCountry() ?></td>
+                <td><?php echo $elem->getPeriod() ?> dni</td>
+                <td><?php echo $elem->getPrice() ?></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Alaska</td>
-                <td>Ameryka Północna</td>
-                <td>USA</td>
-                <td>10 dni</td>
-                <td>24000 PLN</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Everest</td>
-                <td>Azja</td>
-                <td>Chiny</td>
-                <td>7 dni</td>
-                <td>22000 PLN</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Alpy</td>
-                <td>Europa</td>
-                <td>Austria</td>
-                <td>6 dni</td>
-                <td>16000 PLN</td>
-            </tr>
+        <?php } ?>
         </tbody>
     </table>
   </div>
