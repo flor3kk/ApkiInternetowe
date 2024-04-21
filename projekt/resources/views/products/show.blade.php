@@ -5,7 +5,7 @@
 
     <div id="wycieczki" class="container mt-5 mb-5">
         <div class="row m-2 text-center">
-          <h1>Wycieczka</h1>
+          <h1>Cukierek</h1>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-sm-6 col-lg-3">
@@ -14,8 +14,8 @@
                     <div class="card-body">
                         <p class="card-text">ID: {{ $product->ID_produktu }}</p>
                         <p class="card-text">Nazwa: {{ $product->nazwa }}</p>
-                        <p class="card-text">continent: {{ $product->cena_za_kg }}</p>
-                        <p class="card-text">period: {{ $product->dostepna_ilosc_kg }}</p>
+                        <p class="card-text">Cena za Kg: {{ $product->cena_za_kg }}</p>
+                        <p class="card-text">Dostepna ilosc kg: {{ $product->dostepna_ilosc_kg }}</p>
 
                         <p><a href="{{ route('products.edit', $product->ID_produktu) }}">Edytuj</a></p>
 
