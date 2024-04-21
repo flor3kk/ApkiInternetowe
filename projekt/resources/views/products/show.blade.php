@@ -3,7 +3,9 @@
   @include('shared.head', ['pageTitle' => 'Słodycz '.$product->nazwa])
   <body>
 
-    <div id="wycieczki" class="container mt-5 mb-5">
+    @include('shared.navbar')
+
+    <div id="cukierki" class="container mt-5 mb-5">
         <div class="row m-2 text-center">
           <h1>Cukierek</h1>
         </div>

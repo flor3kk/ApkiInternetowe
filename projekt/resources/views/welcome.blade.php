@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-lg-4 col-12">
               <div class="card shadow" style="margin-bottom: 2rem;">
-                <img src="img/bombone.jpg" class="card-img-top" alt="cukierki" style="  height: 20rem; object-fit: cover;">
+                <img src="img/cukierki.jpg" class="card-img-top" alt="cukierki" style="  height: 20rem; object-fit: cover;">
                 <div class="card-body text-center">
                   <p class="card-text">Oferujemy szeroki asortyment kolorowych cukierków różnego rodzaju!<br> Od gumowych, przez żelki aż po twarde cukierki - mamy wszystko, co zadowoli każdego łasucha!</p>
                 </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-4 col-12">
               <div class="card shadow" style="margin-bottom: 2rem;">
-                <img src="img/cokolade.jpg" class="card-img-top" alt="czekolady" style="  height: 20rem; object-fit: cover;">
+                <img src="img/czekolada.jpg" class="card-img-top" alt="czekolady" style="  height: 20rem; object-fit: cover;">
                 <div class="card-body text-center">
                   <p class="card-text">Nasze delikatne czekolady rozpuszczają się w ustach. Oprócz szerokiego wyboru smaków oferujemy także możliwość wykonania czekoladek na specjalne okazje, takie jak bankiety czy wesela!</p>
                 </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-4 col-12">
               <div class="card shadow" style="margin-bottom: 2rem;">
-                <img src="img/sladoledi.jpg" class="card-img-top" alt="lody" style="  height: 20rem; object-fit: cover;">
+                <img src="img/lody.jpg" class="card-img-top" alt="lody" style="  height: 20rem; object-fit: cover;">
                 <div class="card-body text-center">
                   <p class="card-text">Marzysz o prawdziwym lodzie?<br>Nie szukaj dalej, trafiłeś we właściwe miejsce! Ostatnio wprowadziliśmy do oferty kilka najpiękniejszych lodów o naturalnych składnikach i prawdziwym smaku!</p>
                 </div>
@@ -42,7 +42,7 @@
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4">Promocja 20% zniżki!</h1>
-              <p class="lead">Tylko do końca stycznia 2020 roku skorzystaj z specjalnej oferty 20% zniżki przy zakupie przynajmniej jednego produktu z każdej z trzech oferowanych kategorii.</p>
+              <p class="lead">Tylko do końca czerwca 2024 roku skorzystaj z specjalnej oferty 20% zniżki przy zakupie przynajmniej jednego produktu z każdej z trzech oferowanych kategorii.</p>
             </div>
           </div>
         </section>
@@ -50,14 +50,14 @@
         <!-- W skrócie o nas -->
         <section id="opis">
           <div class="card mb-3 shadow">
-            <img src="img/prodavnica.jpg" class="card-img-top" alt="Sklep">
+            <img src="img/sklep.jpg" class="card-img-top" alt="Sklep">
             <div class="card-body">
               <h3 class="card-title">CandyShop</h3>
               <p class="card-text">Słodycze, przekąski i prezenty to to, w czym CandyShop się specjalizuje! Od 2009 roku dostarczamy zamówienia do szczęśliwych klientów na całym Bałkanach, takich jak Ty!
                 <br>
                 Nasz zespół jest oddany temu, aby Twoje doświadczenie z nami sprawiło, że będziesz uśmiechnięty i że będziesz wracać po więcej. Pozwól, że przedstawimy Ci nasz zespół i opowiemy nieco więcej o naszej firmie.
                 </p>
-              <a href="onama.html" class="card-link">Dowiedz się więcej...</a>
+              <a href="about" class="card-link">Dowiedz się więcej...</a>
             </div>
           </div>
         </section>

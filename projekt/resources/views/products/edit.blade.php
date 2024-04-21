@@ -6,6 +6,7 @@
     <div class="container mt-5 mb-5">
         @include('shared.session-error')
 
+    @include('shared.navbar')
 
         <div class="row mt-4 mb-4 text-center">
             <h1>Edytuj słodycz</h1>
