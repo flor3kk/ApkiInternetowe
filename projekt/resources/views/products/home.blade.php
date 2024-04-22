@@ -11,14 +11,16 @@
           <h1>Slodycze</h1>
         </div>
     <div class="row">
-            @forelse ($randomProd as $product)
+            @forelse ($products as $product)
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card">
-                    <img src="{{ asset('storage/img/'.$product->img) }}" class="card-img-top">
+                    <img src="{{ asset('storage/img/' . $product->img) }}" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->nazwa }}</h5>
                         <p class="card-text">Cena za kg: {{ $product->cena_za_kg }} zł</p>
                         <p class="card-text">Dostepna ilosc kg: {{ $product->dostepna_ilosc_kg }}</p>
+                        {{-- <p class="card-text">Kategoria: {{ $product->category->nazwa }}</p> --}}
+                        <p class="card-text">Kategoria: {{ $product->ID_kategorii }}</p>
                         <a href="{{ route('products.show', $product->ID_produktu ) }}" class="btn btn-primary">Więcej szczegółów...</a>
                     </div>
                 </div>
