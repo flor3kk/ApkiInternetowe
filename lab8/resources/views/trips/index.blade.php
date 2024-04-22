@@ -85,7 +85,11 @@
                     <td>{{$trip->country->name}}</td>
                     <td>{{$trip->period}} dni</td>
                     <td>{{$trip->price}} PLN</td>
-                    <td><a href="{{route('trips.edit', $trip->id)}}">Edycja</a></td>
+                    <td>
+                    @can('is-admin')
+                    <a href="{{route('trips.edit', $trip->id)}}">Edycja</a>
+                    </td>
+                    @endcan
                 </tr>
             @empty
                 <tr>

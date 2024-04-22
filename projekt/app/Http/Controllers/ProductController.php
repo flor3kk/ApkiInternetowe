@@ -12,11 +12,11 @@ class ProductController extends Controller
         $products = Product::all();
         return view('products.home', [
             'products' => $products,
-            'randomProd' => $products->random(3),
+            'randomProd' => $products
         ]);
     }
 
-    public function show(Product $product) // Change $trip to $product
+    public function show(Product $product)
     {
         return view('products.show', compact('product'));
     }

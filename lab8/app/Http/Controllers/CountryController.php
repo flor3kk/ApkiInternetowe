@@ -34,7 +34,7 @@ class CountryController extends Controller
         $input = $request->all();
         Country::create($input);
 
-        return redirect()->route('countries.index');
+        return redirect()->route('countries.index')->middleware('auth'); ;
     }
 
     /**
@@ -60,6 +60,9 @@ class CountryController extends Controller
      */
     public function update(UpdateCountryRequest $request, Country $country)
     {
+        if ($request->user()->cannot('update', $country)) {
+            abort(403);
+        }
         $input = $request->all();
         $country->update($input);
         return redirect()->route('countries.index');
