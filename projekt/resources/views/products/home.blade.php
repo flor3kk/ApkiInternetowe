@@ -19,8 +19,7 @@
                         <h5 class="card-title">{{ $product->nazwa }}</h5>
                         <p class="card-text">Cena za kg: {{ $product->cena_za_kg }} zł</p>
                         <p class="card-text">Dostepna ilosc kg: {{ $product->dostepna_ilosc_kg }}</p>
-                        {{-- <p class="card-text">Kategoria: {{ $product->category->nazwa }}</p> --}}
-                        <p class="card-text">Kategoria: {{ $product->ID_kategorii }}</p>
+                        <p class="card-text">Kategoria: {{ $product->category->nazwa }}</p>
                         <a href="{{ route('products.show', $product->ID_produktu ) }}" class="btn btn-primary">Więcej szczegółów...</a>
                     </div>
                 </div>

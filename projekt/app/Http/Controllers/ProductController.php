@@ -9,16 +9,12 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // $products = Product::all();
-        // return view('products.home', [
-        //     'products' => $products
-        // ]);
-
         $products = Product::with('category')->get();
 
-        foreach ($products as $product) {
-            echo $product->category->nazwa;
-        }
+        // dd($products);
+        return view('products.home', [
+            'products' => $products
+        ]);
 
     }
 
