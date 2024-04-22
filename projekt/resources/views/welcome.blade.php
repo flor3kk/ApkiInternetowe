@@ -9,13 +9,14 @@
       <div id="main" class="container clear-top">
 
         <!-- Karty produktów -->
-        <section id="proizvodi">
+        <section id="karty">
           <div class="row">
             <div class="col-lg-4 col-12">
               <div class="card shadow" style="margin-bottom: 2rem;">
                 <img src="img/cukierki.jpg" class="card-img-top" alt="cukierki" style="  height: 20rem; object-fit: cover;">
                 <div class="card-body text-center">
-                  <p class="card-text">Oferujemy szeroki asortyment kolorowych cukierków różnego rodzaju!<br> Od gumowych, przez żelki aż po twarde cukierki - mamy wszystko, co zadowoli każdego łasucha!</p>
+                  <p class="card-text">Oferujemy szeroki asortyment kolorowych cukierków różnego rodzaju!<br>
+                    Od gumowych, przez żelki aż po twarde cukierki - mamy wszystko, co zadowoli każdego łasucha!</p>
                 </div>
               </div>
             </div>
@@ -31,7 +32,8 @@
               <div class="card shadow" style="margin-bottom: 2rem;">
                 <img src="img/lody.jpg" class="card-img-top" alt="lody" style="  height: 20rem; object-fit: cover;">
                 <div class="card-body text-center">
-                  <p class="card-text">Marzysz o prawdziwym lodzie?<br>Nie szukaj dalej, trafiłeś we właściwe miejsce! Ostatnio wprowadziliśmy do oferty kilka najpiękniejszych lodów o naturalnych składnikach i prawdziwym smaku!</p>
+                  <p class="card-text">Marzysz o prawdziwym lodzie?<br>Nie szukaj dalej, trafiłeś we właściwe miejsce!
+                    Ostatnio wprowadziliśmy do oferty kilka najpiękniejszych lodów o naturalnych składnikach i prawdziwym smaku!</p>
                 </div>
               </div>
             </div>

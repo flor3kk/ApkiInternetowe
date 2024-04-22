@@ -37,7 +37,10 @@
                             <td>{{ $country->currency }}</td>
                             <td>{{ $country->area }} km²</td>
                             <td>{{ $country->language }}</td>
-                            <td><a href="{{route('countries.edit', $country)}}">Edycja</a></td>
+                            @can('update', $country)
+                                <td><a href="{{ route('countries.edit', $country) }}">Edycja</a></td>
+                            @endcan
+
                             <td>
                                 <form method="POST" action="{{ route('countries.destroy', $country->id) }}">
                                     @csrf

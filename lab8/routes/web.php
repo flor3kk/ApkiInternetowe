@@ -23,3 +23,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/auth/login', 'authenticate')->name('login.authenticate');
     Route::get('/auth/logout', 'logout')->name('logout');
 });
+
+// routes/web.php
+

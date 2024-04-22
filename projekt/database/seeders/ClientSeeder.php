@@ -22,21 +22,21 @@ class ClientSeeder extends Seeder
     Client::insert(
         [
             [
-                'imie' => 'Jan',
-                'nazwisko' => 'Kowalski',
                 'adres_mail' => 'jan.kowalski@example.com',
-                'numer_telefonu' => '123456789',
+                'password' => 1234,
+                'nazwisko' => 'Kowalski',
+                'numer_telefonu' => '123456789'
             ],
             [
-                'imie' => 'Anna',
-                'nazwisko' => 'Nowak',
                 'adres_mail' => 'ann.nmowak@example.com',
-                'numer_telefonu' => '123456789',
+                'password' => 1234,
+                'nazwisko' => 'Nowak',
+                'numer_telefonu' => '123456789'
             ],
             [
-                'imie' => 'Karol',
-                'nazwisko' => 'Bang',
                 'adres_mail' => 'bangbang@example.com',
+                'password' => 1234,
+                'nazwisko' => 'Bang',
                 'numer_telefonu' => '123456789',
             ]
         ]

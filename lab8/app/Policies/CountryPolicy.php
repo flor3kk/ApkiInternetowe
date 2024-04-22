@@ -39,6 +39,7 @@ class CountryPolicy
     {
      return $user->country_id === $country->id;
     }
+
     /**
      * Determine whether the user can delete the model.
      */
