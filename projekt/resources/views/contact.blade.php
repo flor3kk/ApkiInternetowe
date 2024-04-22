@@ -28,7 +28,7 @@
             </div>
             <div class="col-4" style="padding: 0 !important;">
               <i class="fas fa-phone"></i> Telefon:
-              <br><a href="tel:+381606088281" class="text-danger">123-456-789</a>
+              <br><a href="tel:+48123123123" class="text-danger">123-123-123</a>
             </div>
             <div class="col-4" style="padding: 0 !important;">
               <i class="far fa-envelope"></i> Email:
