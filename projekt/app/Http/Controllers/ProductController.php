@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class ProductController extends Controller
 {
     public function index()
@@ -25,15 +27,34 @@ class ProductController extends Controller
 
     public function edit($ID_produktu)
     {
+        // KAZDY MOZE EDYTOWAC
+        // $product = Product::findOrFail($ID_produktu);
+        // return view('products.edit', compact('product'));
+
+
         $product = Product::findOrFail($ID_produktu);
 
-        return view('products.edit', compact('product'));
+        if (auth()->user()->id === 1) {
+            return view('products.edit', compact('product'));
+        } else {
+            alert("BRAK UPRAWNIEN");
+            return redirect()->route('products.home');
+        }
     }
 
     public function destroy(Product $product)
     {
-        $product->delete();
-        return redirect()->route('products.home');
+        // KAZDY MZOE USUWAC
+        // $product->delete();
+        // return redirect()->route('products.home');
+
+        if (auth()->user()->id === 1) {
+            $product->delete();
+            return redirect()->route('products.home');
+        } else {
+            alert("BRAK UPRAWNIEN");
+            return redirect()->route('products.home');
+        }
     }
 
     public function update(Request $request, Product $Product)
