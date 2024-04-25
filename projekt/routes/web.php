@@ -29,6 +29,7 @@ Route::get('/welcome', function () {
 
 Route::get('/home', [ProductController::class, 'index'])->name('products.home');
 
+
 Route::resource('products', ProductController::class);
 
 Route::controller(AuthController::class)->group(function () {

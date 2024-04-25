@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,14 +14,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id('ID_zamowienia');
-            $table->foreignId('ID_produktu')->references('ID_produktu')->on('products');
-            $table->foreignId('ID_klienta')->references('ID_klienta')->on('clients');
-            $table->date('data_zamowienia');
-            $table->float('ilosc_kg');
-            $table->float('cena');
+            $table->id();
+            $table->foreignId('product_id')->references('id')->on('products');
+            $table->foreignId('user_id')->constrained();
+            $table->date('order_date');
+            $table->float('order_kg');
+            $table->float('order_price');
             $table->timestamps();
         });
+
     }
 
     /**

@@ -39,9 +39,10 @@ class ProductController extends Controller
     public function update(Request $request, Product $Product)
     {
         $request->validate([
-            'nazwa' => 'required|string|max:50',
-            'cena_za_kg' => 'required|numeric|max:30|min:0',
-            'dostepna_ilosc_kg' => 'required|numeric|max:30|min:0',
+            'name' => 'required|string|max:50|min:0',
+            'price' => 'required|numeric|max:30|min:0',
+            'available' => 'required|numeric|max:30|min:0',
+            'description' => 'required|string|max:50|min:0',
         ]);
 
         $input = $request->all();

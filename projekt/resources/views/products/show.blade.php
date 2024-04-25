@@ -1,6 +1,6 @@
 @include('shared.html')
 
-  @include('shared.head', ['pageTitle' => 'Słodycz '.$product->nazwa])
+  @include('shared.head', ['pageTitle' => 'Słodycz '.$product->name])
   <body>
 
     @include('shared.navbar')
@@ -14,15 +14,16 @@
                 <div class="card">
                     <img src="{{ asset('storage/img/'.$product->img) }}" class="card-img-top">
                     <div class="card-body">
-                        <p class="card-text">ID: {{ $product->ID_produktu }}</p>
-                        <p class="card-text">Nazwa: {{ $product->nazwa }}</p>
-                        <p class="card-text">Cena za Kg: {{ $product->cena_za_kg }}</p>
-                        <p class="card-text">Dostepna ilosc kg: {{ $product->dostepna_ilosc_kg }}</p>
+                        <p class="card-text">ID: {{ $product->id }}</p>
+                        <p class="card-text">Nazwa: {{ $product->name }}</p>
+                        <p class="card-text">Cena za Kg: {{ $product->price }}</p>
+                        <p class="card-text">Dostepna ilosc kg: {{ $product->available }}</p>
+                        <p class="card-text">Opis (kaloryka): {{ $product->description }}</p>
 
-                        <p><a href="{{ route('products.edit', $product->ID_produktu) }}">Edytuj</a></p>
+                        <p><a href="{{ route('products.edit', $product->id) }}">Edytuj</a></p>
 
                         <p>
-                            <form method="POST" action="{{ route('products.destroy', $product->ID_produktu) }}">
+                            <form method="POST" action="{{ route('products.destroy', $product->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="btn btn-danger" value="Usuń"

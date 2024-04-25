@@ -3,10 +3,11 @@
 
 @include('shared.head', ['pageTitle' => 'Edytuj słodycze'])
 
-    <div class="container mt-5 mb-5">
-        @include('shared.session-error')
-
+<body>
     @include('shared.navbar')
+    <div class="container mt-5 mb-5">
+
+        @include('shared.session-error')
 
         <div class="row mt-4 mb-4 text-center">
             <h1>Edytuj słodycz</h1>
@@ -16,27 +17,32 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <form method="POST" action="{{ route('products.update', $product->ID_produktu) }}" class="needs-validation" novalidate>
+                    <form method="POST" action="{{ route('products.update', $product->id) }}" class="needs-validation" novalidate>
                         @csrf
                         @method('PUT')
                         <div class="form-group mb-2">
-                            <label for="nazwa" class="form-label">Nazwa</label>
-                            <input id="nazwa" name="nazwa" type="text" class="form-control @if ($errors->first('nazwa')) is-invalid @endif" value="{{ $product->nazwa }}">
+                            <label for="name" class="form-label">Nazwa</label>
+                            <input id="name" name="name" type="text" class="form-control @if ($errors->first('name')) is-invalid @endif" value="{{ $product->name }}">
                             <div class="invalid-feedback">Nieprawidłowa nazwa!</div>
                         </div>
 
                         <div class="form-group mb-2">
-                            <label for="cena_za_kg" class="form-label">Cena za kg</label>
-                            <input id="cena_za_kg" name="cena_za_kg" type="text" class="form-control @if ($errors->first('cena_za_kg')) is-invalid @endif" value="{{ $product->cena_za_kg }}">
+                            <label for="price" class="form-label">Cena za kg</label>
+                            <input id="price" name="price" type="text" class="form-control @if ($errors->first('price')) is-invalid @endif" value="{{ $product->price }}">
                             <div class="invalid-feedback">Nieprawidłowa cena za kg!</div>
                         </div>
 
                         <div class="form-group mb-2">
-                            <label for="dostepna_ilosc_kg" class="form-label">Dostępna ilość kg</label>
-                            <input id="dostepna_ilosc_kg" name="dostepna_ilosc_kg" type="text" class="form-control @if ($errors->first('dostepna_ilosc_kg')) is-invalid @endif" value="{{ $product->dostepna_ilosc_kg }}">
+                            <label for="available" class="form-label">Dostępna ilość kg</label>
+                            <input id="available" name="available" type="text" class="form-control @if ($errors->first('available')) is-invalid @endif" value="{{ $product->available }}">
                             <div class="invalid-feedback">Nieprawidłowa dostępna ilość kg!</div>
                         </div>
 
+                        <div class="form-group mb-2">
+                            <label for="description" class="form-label">Opis</label>
+                            <input id="description" name="description" type="text" class="form-control @if ($errors->first('description')) is-invalid @endif" value="{{ $product->description }}">
+                            <div class="invalid-feedback">Nieprawidłowa opis</div>
+                        </div>
                         {{-- Uzupełnienie formularza --}}
                         <div class="text-center mt-4 mb-4">
                             <input class="btn btn-success" type="submit" value="Wyślij">

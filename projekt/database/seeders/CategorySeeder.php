@@ -19,11 +19,11 @@ class CategorySeeder extends Seeder
 
     Category::insert(
         [
-            ['nazwa' => 'batony',],
-            ['nazwa' => 'lody',],
-            ['nazwa' => 'czekolady',],
-            ['nazwa' => 'cukierki',],
-            ['nazwa' => 'zelki',],
+            ['name' => 'batony',],
+            ['name' => 'lody',],
+            ['name' => 'czekolady',],
+            ['name' => 'cukierki',],
+            ['name' => 'zelki',],
         ]
     );
 }

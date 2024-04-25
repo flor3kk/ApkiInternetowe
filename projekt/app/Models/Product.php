@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'ID_produktu';
+
 
     protected $fillable = [
-        'nazwa', 'cena_za_kg', 'dostepna_ilosc_kg', 'ID_kategorii'
+        'name', 'price', 'available', 'description'
     ];
 
     public function order(): BelongsTo
@@ -23,6 +23,6 @@ class Product extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class,'ID_kategorii', 'ID_kategorii');
+        return $this->belongsTo(Category::class);
     }
 }

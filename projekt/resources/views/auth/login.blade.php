@@ -20,8 +20,8 @@
                 <form method="POST" action="{{ route('login.authenticate') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="form-group mb-2">
-                        <label for="adres_mail" class="form-label">Email</label>
-                        <input id="adres_mail" name="adres_mail" type="text" class="form-control @if ($errors->first('adres_mail')) is-invalid @endif" value="{{ old('adres_mail') }}">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" type="text" class="form-control @if ($errors->first('email')) is-invalid @endif" value="{{ old('email') }}">
                         <div class="invalid-feedback">Nieprawidłowy email!</div>
                     </div>
                     <div class="form-group mb-2">

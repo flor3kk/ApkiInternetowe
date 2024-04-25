@@ -22,39 +22,44 @@ class ProductSeeder extends Seeder
     Product::insert(
         [
             [
-                'nazwa' => 'zelki',
-                'cena_za_kg' => 3,
-                'dostepna_ilosc_kg' => 200,
+                'name' => 'zelki',
+                'price' => 3,
+                'available' => 200,
+                'description' => '456kcal / 100g',
                 'img' => 'zelki.jpg',
-                'ID_kategorii' => 5
+                'category_id' => 5
             ],
             [
-                'nazwa' => 'cuierki slodkie',
-                'cena_za_kg' => 2,
-                'dostepna_ilosc_kg' => 200,
+                'name' => 'cuierki slodkie',
+                'price' => 2,
+                'available' => 200,
+                'description' => '456kcal / 100g',
                 'img' => 'zelki.jpg',
-                'ID_kategorii' => 4
+                'category_id' => 4
             ],
             [
-                'nazwa' => 'cukierki kwasne',
-                'cena_za_kg' => 25,
-                'dostepna_ilosc_kg' => 200,
+                'name' => 'cukierki kwasne',
+                'price' => 25,
+                'available' => 200,
+                'description' => '456kcal / 100g',
                 'img' => 'zelki.jpg',
-                'ID_kategorii' => 4
+                'category_id' => 4
             ],
             [
-                'nazwa' => 'czekolada',
-                'cena_za_kg' => 15,
-                'dostepna_ilosc_kg' => 25,
+                'name' => 'czekolada',
+                'price' => 15,
+                'available' => 25,
+                'description' => '456kcal / 100g',
                 'img' => 'zelki.jpg',
-                'ID_kategorii' => 3
+                'category_id' => 3
             ],
             [
-                'nazwa' => 'lody',
-                'cena_za_kg' => 25,
-                'dostepna_ilosc_kg' => 200,
+                'name' => 'lody',
+                'price' => 25,
+                'available' => 200,
+                'description' => '456kcal / 100g',
                 'img' => 'lody.png',
-                'ID_kategorii' => 2
+                'category_id' => 2
             ]
         ]
     );

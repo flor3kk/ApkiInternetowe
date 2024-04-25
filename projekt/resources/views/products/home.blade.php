@@ -6,21 +6,22 @@
 
     @include('shared.navbar')
 
-    <div id="slodycze" class="container mt-5">
+    <div id="slodycze" class="container mt-5 mb-5" >
         <div class="row">
           <h1>Slodycze</h1>
         </div>
-    <div class="row">
+        <div class="row">
             @forelse ($products as $product)
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card">
                     <img src="{{ asset('storage/img/' . $product->img) }}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $product->nazwa }}</h5>
-                        <p class="card-text">Cena za kg: {{ $product->cena_za_kg }} zł</p>
-                        <p class="card-text">Dostepna ilosc kg: {{ $product->dostepna_ilosc_kg }}</p>
-                        <p class="card-text">Kategoria: {{ $product->category->nazwa }}</p>
-                        <a href="{{ route('products.show', $product->ID_produktu ) }}" class="btn btn-primary">Więcej szczegółów...</a>
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">Cena za kg: {{ $product->price }} zł</p>
+                        <p class="card-text">Dostepna ilosc kg: {{ $product->available }}</p>
+                        <p class="card-text">Kaloryka (opis): {{ $product->description }}</p>
+                        <p class="card-text">Kategoria: {{ $product->category->name }}</p>
+                        <a href="{{ route('products.show', $product->id ) }}" class="btn btn-primary">Więcej szczegółów...</a>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@
           <ul class="navbar-nav mb-2 mb-lg-0">
             @if (Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">wyloguj się... </a>
+                    <a class="nav-link" href="{{ route('logout') }}">{{ Auth::user()->name }} wyloguj się... </a>
                 </li>
             @else
                 <li class="nav-item">
