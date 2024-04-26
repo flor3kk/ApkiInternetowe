@@ -45,6 +45,13 @@
                         </div>
 
                         <div class="form-group mb-2">
+                            <label for="img" class="form-label">Nazwa obrazka</label>
+                            <input id="img" name="img" type="text"
+                            class="form-control @if ($errors->first('img')) is-invalid @endif" value="{{ $product->img }}">
+                            <div class="invalid-feedback">Nieprawidłowa nazwa obrazka!</div>
+                        </div>
+
+                        <div class="form-group mb-2">
                             <label for="category_id" class="form-label">Kategoria</label>
                             <select id="category_id" name="category_id" type="number" class="form-control @if ($errors->first('category_id')) is-invalid @endif">
                                 @foreach ($categories as $category)

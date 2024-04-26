@@ -47,11 +47,6 @@
                         <div class="invalid-feedback">Nieprawidłowy format!</div>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="img" class="form-label">Zdjecie</label>
-                        <input id="img" name="img" type="image" class="form-control @if ($errors->first('img')) is-invalid @endif" value="{{ old('img') }}">
-                        <div class="invalid-feedback">Nieprawidłowy format!</div>
-                    </div>
                     <div class="text-center mt-4 mb-4">
                         <input class="btn btn-success" type="submit" value="Wyślij">
                     </div>
