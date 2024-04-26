@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Models\Product;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,10 +24,12 @@ Route::get('/contact', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/priceList', function () {
+    $products = Product::all();
+    return view('priceList', ['products' => $products]);
+});
 // NIE RUSZAC
-
-
-
 Route::get('/home', [ProductController::class, 'index'])->name('products.home');
 
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductRequest;
 
 use function Laravel\Prompts\alert;
 
@@ -17,7 +19,6 @@ class ProductController extends Controller
         return view('products.home', [
             'products' => $products
         ]);
-
     }
 
     public function show(Product $product)
@@ -33,9 +34,10 @@ class ProductController extends Controller
 
 
         $product = Product::findOrFail($ID_produktu);
+        $categories = Category::all();
 
         if (auth()->user()->id === 1) {
-            return view('products.edit', compact('product'));
+            return view('products.edit', compact('product', 'categories'));
         } else {
             alert("BRAK UPRAWNIEN");
             return redirect()->route('products.home');
@@ -64,6 +66,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|max:30|min:0',
             'available' => 'required|numeric|max:30|min:0',
             'description' => 'required|string|max:50|min:0',
+            'category_id' => 'required|numeric|exists:categories,id',
         ]);
 
         $input = $request->all();
@@ -71,5 +74,23 @@ class ProductController extends Controller
         return redirect()->route('products.home');
     }
 
+    public function create(){
 
+        if (auth()->user()->id === 1) {
+            return view('products.create');
+        } else {
+            alert("BRAK UPRAWNIEN");
+            return redirect()->route('products.home');
+        }
+
+        // KAZDY MOZE DODAWAC
+        //return view('products.create');
+    }
+
+    public function store(StoreProductRequest $request){
+        $input = $request->all();
+        Product::create($input);
+
+        return redirect()->route('products.home');
+    }
 }

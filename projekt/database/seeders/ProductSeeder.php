@@ -22,44 +22,52 @@ class ProductSeeder extends Seeder
     Product::insert(
         [
             [
-                'name' => 'zelki',
-                'price' => 3,
-                'available' => 200,
+                'name' => 'żelki',
+                'price' => 3.2,
+                'available' => 23,
                 'description' => '456kcal / 100g',
                 'img' => 'zelki.jpg',
                 'category_id' => 5
             ],
             [
-                'name' => 'cuierki slodkie',
+                'name' => 'Cukierki mleczne',
                 'price' => 2,
                 'available' => 200,
-                'description' => '456kcal / 100g',
-                'img' => 'zelki.jpg',
+                'description' => '456kcal / 100g, firma ROSHEN',
+                'img' => 'cukierki_slodkie.jpg',
                 'category_id' => 4
             ],
             [
-                'name' => 'cukierki kwasne',
-                'price' => 25,
+                'name' => 'cukierki kwaśne shock',
+                'price' => 1.1,
                 'available' => 200,
                 'description' => '456kcal / 100g',
-                'img' => 'zelki.jpg',
+                'img' => 'cukierki_kwasne.jpg',
                 'category_id' => 4
             ],
             [
-                'name' => 'czekolada',
-                'price' => 15,
+                'name' => 'Czekolada milka malinowa',
+                'price' => 4,
                 'available' => 25,
                 'description' => '456kcal / 100g',
-                'img' => 'zelki.jpg',
+                'img' => 'czekolada_prod.png',
                 'category_id' => 3
             ],
             [
-                'name' => 'lody',
-                'price' => 25,
+                'name' => 'Lody',
+                'price' => 5,
                 'available' => 200,
                 'description' => '456kcal / 100g',
                 'img' => 'lody.png',
                 'category_id' => 2
+            ],
+            [
+                'name' => 'Batonik papita',
+                'price' => 2,
+                'available' => 24,
+                'description' => '421kcal / 100g',
+                'img' => 'batonik_prod.jpg',
+                'category_id' => 1
             ]
         ]
     );

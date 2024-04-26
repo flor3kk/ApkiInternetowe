@@ -10,6 +10,11 @@
         <div class="row">
           <h1>Slodycze</h1>
         </div>
+
+        <div class="row mb-2">
+            <a href="{{ route('products.create') }}">Dodaj nowy produkt</a>
+        </div>
+
         <div class="row">
             @forelse ($products as $product)
             <div class="col-12 col-sm-6 col-lg-3">

@@ -13,7 +13,10 @@ class Product extends Model
 
 
     protected $fillable = [
-        'name', 'price', 'available', 'description'
+        'name', 'price', 'available', 'description', 'category_id'];
+
+    protected $attributes = [
+        'img' => 'default_slodycz.jpg',
     ];
 
     public function order(): BelongsTo

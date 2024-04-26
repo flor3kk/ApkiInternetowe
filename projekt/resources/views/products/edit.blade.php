@@ -28,13 +28,13 @@
 
                         <div class="form-group mb-2">
                             <label for="price" class="form-label">Cena za kg</label>
-                            <input id="price" name="price" type="text" class="form-control @if ($errors->first('price')) is-invalid @endif" value="{{ $product->price }}">
+                            <input id="price" name="price" type="number" class="form-control @if ($errors->first('price')) is-invalid @endif" value="{{ $product->price }}">
                             <div class="invalid-feedback">Nieprawidłowa cena za kg!</div>
                         </div>
 
                         <div class="form-group mb-2">
                             <label for="available" class="form-label">Dostępna ilość kg</label>
-                            <input id="available" name="available" type="text" class="form-control @if ($errors->first('available')) is-invalid @endif" value="{{ $product->available }}">
+                            <input id="available" name="available" type="number" class="form-control @if ($errors->first('available')) is-invalid @endif" value="{{ $product->available }}">
                             <div class="invalid-feedback">Nieprawidłowa dostępna ilość kg!</div>
                         </div>
 
@@ -43,6 +43,19 @@
                             <input id="description" name="description" type="text" class="form-control @if ($errors->first('description')) is-invalid @endif" value="{{ $product->description }}">
                             <div class="invalid-feedback">Nieprawidłowa opis</div>
                         </div>
+
+                        <div class="form-group mb-2">
+                            <label for="category_id" class="form-label">Kategoria</label>
+                            <select id="category_id" name="category_id" type="number" class="form-control @if ($errors->first('category_id')) is-invalid @endif">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" @if($category->id == $product->category_id) selected @endif>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback">Nieprawidłowa kategoria</div>
+                        </div>
+
                         {{-- Uzupełnienie formularza --}}
                         <div class="text-center mt-4 mb-4">
                             <input class="btn btn-success" type="submit" value="Wyślij">
