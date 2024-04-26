@@ -12,7 +12,7 @@
               <li class="list-inline-item"><a href="priceList">Cennik</a></li>
               <li class="list-inline-item"><a href="contact">Kontakt</a></li>
             </ul>
-            <p>Prawa autorskie <i class="far fa-copyright"></i> 2024, CandyShop Wszelkie prawa zastrzeżone.</p>
+            <p>Prawa autorskie <i class="far fa-copyright"></i> 2024, Florek Bartłomiej Wszelkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
