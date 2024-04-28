@@ -6,24 +6,47 @@ use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\Country;
 use Illuminate\Support\Facades\Gate;
+use App\Services\TripService;
+use Illuminate\Support\Facades\Log;
+
+// Log::info('Showing details for trip: '.$id);
+// Log::channel('stderr')->info('Showing details for trip: '.$id);
 
 class TripController extends Controller
 {
+
+    protected $tripService;
+    public function __construct(TripService $tripService)
+    {
+    $this->tripService = $tripService;
+    }
+
     public function index()
     {
-        $trips = Trip::all();
+        // Ładowanie kolekcji wycieczek z krajami (zachłanne ładowanie)
+        $trips = Trip::with('country:id,name')->get();
+
+        // Pobranie 4 losowych wycieczek
+        $randomTrips = $trips->random(4);
+
         return view('trips.index', [
             'trips' => $trips,
-            'randomTrips' => $trips->random(4),
+            'randomTrips' => $randomTrips,
         ]);
     }
+
 
     public function show($id)
     {
         $trip = Trip::findOrFail($id);
 
+        $tripService = new TripService();
+
+        $promoPrice = $tripService->calculatePromoPrice($trip->price);
+
         return view('trips.show', [
-            'trip' => $trip
+            'trip' => $trip,
+            'promoPrice' => $promoPrice, // Przekazanie nowej ceny promocyjnej jako zmienną promoPrice
         ]);
     }
 

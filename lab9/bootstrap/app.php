@@ -6,6 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use App\Http\Middleware\LogActivity;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -14,12 +15,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->web(LogActivity::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
 
         $exceptions->report(function (Exception $e) {
-            Log::channel('stderr')->error($e->getMessage());
+            Log::channel('lab9_errors')->error($e->getMessage());
         });
 
         $exceptions->render(function (QueryException $e, Request $request) {

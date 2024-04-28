@@ -52,6 +52,12 @@ return [
 
     'channels' => [
 
+        'lab9_errors' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/lab9_errors.log'),
+            'level' => 'error',
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', env('LOG_STACK', 'single')),
