@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Models\Country;
 use App\Http\Requests\StoreCountryRequest;
+use App\Http\Requests\UpdateCountryRequest;
+use Illuminate\Support\Facades\Gate;
 
 class CountryController extends Controller
 {
@@ -35,7 +35,7 @@ class CountryController extends Controller
         $input = $request->all();
         Country::create($input);
 
-        return redirect()->route('countries.index')->middleware('auth');
+        return redirect()->route('countries.index');
     }
 
     /**
@@ -59,7 +59,7 @@ class CountryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Country $country)
+    public function update(UpdateCountryRequest $request, Country $country)
     {
         // if ($request->user()->cannot('update', $country)) {
         //     abort(403);

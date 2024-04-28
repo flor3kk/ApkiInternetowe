@@ -42,7 +42,6 @@
                                     <a href="{{route('countries.edit', $country)}}">Edycja</a>
                                 @endcan
                             </td>
-
                             <td>
                                 <form method="POST" action="{{ route('countries.destroy', $country->id) }}">
                                     @csrf

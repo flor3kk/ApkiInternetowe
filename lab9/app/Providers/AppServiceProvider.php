@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Country;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
-use App\Models\Country;
 use App\Policies\CountryPolicy;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,8 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Gate::policy(Country::class, CountryPolicy::class);
-
+        //
     }
 
     /**

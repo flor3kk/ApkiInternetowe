@@ -38,10 +38,10 @@
     </div>
 
     <div id="wycieczki" class="container mt-5">
-        <div class="row">
-          <h1>Wycieczki</h1>
-        </div>
-        <div class="row">
+      <div class="row">
+        <h1>Wycieczki</h1>
+      </div>
+      <div class="row">
         @forelse ($randomTrips as $trip)
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card">
@@ -63,6 +63,11 @@
       <div class="row">
           <h1>Cennik</h1>
       </div>
+      @can('is-admin')
+      <div class="row mb-2">
+        <a href="{{ route('trips.image_upload') }}">Dodaj nowy obrazek</a>
+      </div>
+      @endcan
       <div class="table-responsive-sm">
         <table class="table table-hover table-striped">
           <thead>
@@ -74,6 +79,9 @@
                   <th scope="col">Okres</th>
                   <th scope="col">Cena</th>
                   <th scope="col"></th>
+                  @can('is-admin')
+                    <th scope="col"></th>
+                  @endcan
               </tr>
           </thead>
           <tbody>
@@ -86,9 +94,20 @@
                     <td>{{$trip->period}} dni</td>
                     <td>{{$trip->price}} PLN</td>
                     <td>
-                    @can('is-admin')
-                    <a href="{{route('trips.edit', $trip->id)}}">Edycja</a>
+                        <form method="POST" action="{{ route('trips.favourite') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $trip->id }}" />
+                            <button type="submit" value="Usuń" class="nav-link">
+                                @if (in_array($trip->id, session('favTrips', array())))
+                                    <i class="bi-suit-heart-fill"></i>
+                                @else
+                                    <i class="bi-suit-heart"></i>
+                                @endif
+                            </button>
+                        </form>
                     </td>
+                    @can('is-admin')
+                        <td><a href="{{route('trips.edit', $trip->id)}}">Edycja</a></td>
                     @endcan
                 </tr>
             @empty
@@ -144,6 +163,6 @@
       </div>
     </div>
 
-    @include('shared.footer')
+    @include('shared.footer', ['fixedBottom' => false])
 
 </html>
