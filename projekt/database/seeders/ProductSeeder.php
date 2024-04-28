@@ -25,7 +25,8 @@ class ProductSeeder extends Seeder
                 'name' => 'żelki',
                 'price' => 3.2,
                 'available' => 23,
-                'description' => '456kcal / 100g',
+                'calories' => '456kcal / 100g',
+                'description' => 'firma xdxdd',
                 'img' => 'zelki.jpg',
                 'category_id' => 5
             ],
@@ -33,7 +34,8 @@ class ProductSeeder extends Seeder
                 'name' => 'Cukierki mleczne',
                 'price' => 2,
                 'available' => 200,
-                'description' => '456kcal / 100g, firma ROSHEN',
+                'calories' => '456kcal / 100g ',
+                'description' => 'firma ROSHEN',
                 'img' => 'cukierki_slodkie.jpg',
                 'category_id' => 4
             ],
@@ -41,7 +43,8 @@ class ProductSeeder extends Seeder
                 'name' => 'cukierki kwaśne shock',
                 'price' => 1.1,
                 'available' => 200,
-                'description' => '456kcal / 100g',
+                'calories' => '456kcal / 100g',
+                'description' => 'firma aaaaa',
                 'img' => 'cukierki_kwasne.jpg',
                 'category_id' => 4
             ],
@@ -49,7 +52,8 @@ class ProductSeeder extends Seeder
                 'name' => 'Czekolada milka malinowa',
                 'price' => 4,
                 'available' => 25,
-                'description' => '456kcal / 100g',
+                'calories' => '456kcal / 100g',
+                'description' => 'firma mmmmm',
                 'img' => 'czekolada_prod.png',
                 'category_id' => 3
             ],
@@ -57,7 +61,8 @@ class ProductSeeder extends Seeder
                 'name' => 'Lody',
                 'price' => 5,
                 'available' => 200,
-                'description' => '456kcal / 100g',
+                'calories' => '456kcal / 100g',
+                'description' => 'firma qqqq',
                 'img' => 'lody.png',
                 'category_id' => 2
             ],
@@ -65,7 +70,8 @@ class ProductSeeder extends Seeder
                 'name' => 'Batonik papita',
                 'price' => 2,
                 'available' => 24,
-                'description' => '421kcal / 100g',
+                'calories' => '421kcal / 100g',
+                'description' => 'firma wwwww',
                 'img' => 'batonik_prod.jpg',
                 'category_id' => 1
             ]

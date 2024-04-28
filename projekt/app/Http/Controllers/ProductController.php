@@ -65,6 +65,7 @@ class ProductController extends Controller
             'name' => 'required|string|max:50|min:0',
             'price' => 'required|numeric|max:30|min:0',
             'available' => 'required|numeric|max:30|min:0',
+            'calories' => 'required|string|max:30|min:0',
             'description' => 'required|string|max:50|min:0',
             'img' => 'required|string|max:50|min:0',
             'category_id' => 'required|numeric|exists:categories,id',

@@ -13,7 +13,7 @@ class Product extends Model
 
 
     protected $fillable = [
-        'name', 'price', 'available', 'description', 'category_id'];
+        'name', 'price', 'available', 'calories', 'description', 'category_id'];
 
     protected $attributes = [
         'img' => 'default_slodycz.jpg',

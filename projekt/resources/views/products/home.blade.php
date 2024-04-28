@@ -24,7 +24,7 @@
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">Cena za kg: {{ $product->price }} zł</p>
                         <p class="card-text">Dostepna ilosc kg: {{ $product->available }}</p>
-                        <p class="card-text">Kaloryka (opis): {{ $product->description }}</p>
+                        <p class="card-text">Kaloryka: {{ $product->calories }}</p>
                         <p class="card-text">Kategoria: {{ $product->category->name }}</p>
                         <a href="{{ route('products.show', $product->id ) }}" class="btn btn-primary">Więcej szczegółów...</a>
                     </div>

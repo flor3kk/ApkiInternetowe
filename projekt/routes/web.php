@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Models\Order;
 use App\Models\Product;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,7 +31,12 @@ Route::get('/priceList', function () {
     $products = Product::all();
     return view('priceList', ['products' => $products]);
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
+});
 // NIE RUSZAC
+
 Route::get('/home', [ProductController::class, 'index'])->name('products.home');
 
 

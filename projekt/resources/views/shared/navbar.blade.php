@@ -21,9 +21,17 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ url('contact') }}">Kontakt</a>
             </li>
+            @if (Auth::check())
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('orders') ? 'active' : '' }}" href="{{ url('orders') }}">Zamowienia uzytkownika: {{ Auth::user()->name }}</a>
+            </li>
+            @endif
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">
+            {{-- <li class="pr-5">
+                <button class="nav-link" onclick="themeToggle()"> <i class="bi-moon-stars"></i></button>
+            </li> --}}
             @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">{{ Auth::user()->name }} wyloguj się... </a>

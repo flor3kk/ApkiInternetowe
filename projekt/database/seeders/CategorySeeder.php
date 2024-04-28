@@ -13,7 +13,6 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
     Schema::withoutForeignKeyConstraints(function () {
-        //Trip::truncate();
         Category::truncate();
     });
 

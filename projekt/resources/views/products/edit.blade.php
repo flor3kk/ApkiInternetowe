@@ -39,6 +39,12 @@
                         </div>
 
                         <div class="form-group mb-2">
+                            <label for="calories" class="form-label">Kaloryka</label>
+                            <input id="calories" name="calories" type="text" class="form-control @if ($errors->first('calories')) is-invalid @endif" value="{{ $product->calories }}">
+                            <div class="invalid-feedback">Nieprawidłowa kaloryka</div>
+                        </div>
+
+                        <div class="form-group mb-2">
                             <label for="description" class="form-label">Opis</label>
                             <input id="description" name="description" type="text" class="form-control @if ($errors->first('description')) is-invalid @endif" value="{{ $product->description }}">
                             <div class="invalid-feedback">Nieprawidłowa opis</div>

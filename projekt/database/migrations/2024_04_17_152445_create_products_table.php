@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->float('available');
+            $table->string('calories');
             $table->string('description');
             $table->string('img', 25);
             $table->foreignId('category_id')->constrained();
