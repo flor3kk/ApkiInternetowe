@@ -32,6 +32,14 @@
                         <td>{{ $order->order_date }}</td>
                         <td>{{ $order->order_kg }} kg</td>
                         <td>{{ $order->order_price }}</td>
+                        <td>
+                            <form method="POST" action="{{ route('orders.destroy', $order->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="btn btn-danger" value="Usuń"
+                                       style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" />
+                            </form>
+                        </td>
                     </tr>
                     @empty
                     <tr>

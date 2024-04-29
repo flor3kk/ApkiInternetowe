@@ -27,6 +27,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+});
+
 Route::get('/priceList', function () {
     $products = Product::all();
     return view('priceList', ['products' => $products]);
@@ -36,9 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
 });
 // NIE RUSZAC
+Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
 Route::get('/home', [ProductController::class, 'index'])->name('products.home');
-
 
 Route::resource('products', ProductController::class);
 
