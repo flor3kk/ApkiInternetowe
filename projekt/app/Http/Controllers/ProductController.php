@@ -44,6 +44,7 @@ class ProductController extends Controller
         }
     }
 
+
     public function destroy(Product $product)
     {
         // KAZDY MZOE USUWAC
@@ -95,4 +96,32 @@ class ProductController extends Controller
 
         return redirect()->route('products.home');
     }
+
+    public function addToCart($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        }  else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "price" => $product->price,
+                "quantity" => 1
+            ];
+        }
+
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'dodano produkt do koszyka!');
+    }
+
+    public function clear()
+    {
+        session()->forget('cart');
+        return redirect()->back()->with('success', 'koszyk wyczyszczony.');
+    }
+
+
 }

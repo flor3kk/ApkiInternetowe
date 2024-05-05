@@ -1,6 +1,6 @@
 @include('shared.html')
 
-@include('shared.head', ['pageTitle' => 'Zaloguj się'])
+@include('shared.head', ['pageTitle' => 'Rejestracja'])
 
 <body>
     @include('shared.navbar')
@@ -17,7 +17,7 @@
 
         <div class="row d-flex justify-content-center">
             <div class="col-10 col-sm-10 col-md-6 col-lg-4">
-                <form method="POST" action="{{ route('login.authenticate') }}" class="needs-validation" novalidate>
+                <form method="POST" action="{{ route('registration.post') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="form-group mb-2">
                         <label for="name" class="form-label">Imie</label>

@@ -46,11 +46,15 @@ Route::get('/home', [ProductController::class, 'index'])->name('products.home');
 
 Route::resource('products', ProductController::class);
 
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/clear-cart', [ProductController::class, 'clear'])->name('clear_cart');
+
+
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth/login', 'login')->name('login');
     Route::post('/auth/login', 'authenticate')->name('login.authenticate');
     Route::get('/auth/logout', 'logout')->name('logout');
 });
 
-
-
+Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
+Route::post('/registration', [AuthController::class, 'registrationPost'])->name('registration.post');

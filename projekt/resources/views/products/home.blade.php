@@ -26,7 +26,11 @@
                         <p class="card-text">Dostepna ilosc kg: {{ $product->available }}</p>
                         <p class="card-text">Kaloryka: {{ $product->calories }}</p>
                         <p class="card-text">Kategoria: {{ $product->category->name }}</p>
-                        <a href="{{ route('products.show', $product->id ) }}" class="btn btn-primary">Więcej szczegółów...</a>
+                        <a href="{{ route('products.show', $product->id ) }}" class="btn btn-primary">Więcej szczegółów</a><hr>
+                        @if (Auth::check())
+                        <a href="{{ route('add_to_cart', $product->id) }}" class="btn btn-primary">Dodaj</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
