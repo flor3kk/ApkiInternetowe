@@ -1,0 +1,6 @@
+https://api.nbp.pl/api/cenyzlota
+https://api.nbp.pl/api/cenyzlota/last/7
+https://api.nbp.pl/api/cenyzlota/last/7
+https://api.nbp.pl/api/cenyzlota/last/256 - przekroczono
+https://api.nbp.pl/api/cenyzlota/2024-05-02
+https://api.nbp.pl/api/cenyzlota/2024-04-29/2024-05-05

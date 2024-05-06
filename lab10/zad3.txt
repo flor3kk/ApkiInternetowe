@@ -1,0 +1,7 @@
+https://api.nbp.pl/api/exchangerates/rates/A/EUR
+https://api.nbp.pl/api/exchangerates/rates/B/EUR
+https://api.nbp.pl/api/exchangerates/rates/A/GBP
+https://api.nbp.pl/api/exchangerates/rates/B/GBP
+https://api.nbp.pl/api/exchangerates/rates/A/EUR/last/7
+https://api.nbp.pl/api/exchangerates/rates/A/EUR/last/256
+https://api.nbp.pl/api/exchangerates/rates/A/EUR/today

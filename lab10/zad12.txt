@@ -1,0 +1,26 @@
+https://api.github.com/user
+
+Zmieniamy na PATCH,
+wysylamy zapytanie
+Wchodzimy w body, zaznaczamy raw i wpisujemy {"location": "PL"}, ponownie wysylamy
+
+https://api.github.com/user/repos
+https://api.github.com/user/repos?type=private
+https://api.github.com/user/repos?type=public
+
+Zmieniamy na POST
+wysylamy zapytanie https://api.github.com/user/repos
+wchodzimy w body, zaznaczamy raw i wpsisujemy
+{
+  "name": "ai1-test",
+  "description": "This is AI1 Test repository!",
+  "private": true
+} 
+i ponownie wysylamy
+
+Zmieniamy na PATCH
+wysylamy zapytanie https://api.github.com/repos/flor3kk/ai1-test
+wchodziym w body, zaznaczamy raw i wpisujemy {"private": false}, ponownie wysylamy
+
+Zmieniamy na DELETE
+wysylamy zapytanie https://api.github.com/repos/flor3kk/ai1-test
