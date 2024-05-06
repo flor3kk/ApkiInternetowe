@@ -29,9 +29,6 @@
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">
-            {{-- <li class="pr-5">
-                <button class="nav-link" onclick="themeToggle()"> <i class="bi-moon-stars"></i></button>
-            </li> --}}
             @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">{{ Auth::user()->name }} wyloguj się </a>
@@ -54,7 +51,7 @@
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Koszyk <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
                 </button>
 
-                <div class="dropdown-menu">
+                <div class="dropdown-menu pl-3 pr-3">
                     <div class="row total-header-section">
                         @php $total = 0 @endphp
                         @foreach((array) session('cart') as $id => $details)
@@ -75,34 +72,17 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                            <button class="btn btn-primary btn-block" id="place-order-btn">Zamów</button>
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                <a href="{{ route('cart') }}" class="btn btn-primary btn-block">Zamow</a>
+                            </div>
                         </div>
                     @endif
                 </div>
             </div>
             @endif
-
-            <script>
-                document.getElementById('place-order-btn').addEventListener('click', function() {
-                    fetch('/clear-cart', {
-                        method: 'GET',
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Zamowienie zostało wysłane');
-                        } else {
-                            alert('Wystąpił błąd podczas czyszczenia koszyka.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Wystąpił błąd:', error);
-                        alert('Wystąpił błąd podczas czyszczenia koszyka.');
-                    });
-                });
-            </script>
-
             </div>
         </ul>
         </div>
       </nav>
+<BR><BR><BR><BR>

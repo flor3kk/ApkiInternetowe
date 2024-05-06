@@ -6,7 +6,7 @@
 @include('shared.navbar')
 
     <!-- Treść strony -->
-    <div id="slodycze" class="container mt-5 mb-5" >
+    <div id="slodycze" class="container mb-5" >
         <div class="row">
           <h1>Lista slodyczy</h1>
         </div>

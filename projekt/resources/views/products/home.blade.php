@@ -6,14 +6,16 @@
 
     @include('shared.navbar')
 
-    <div id="slodycze" class="container mt-5 mb-5" >
+    <div id="slodycze" class="container mb-5" >
         <div class="row">
           <h1>Slodycze</h1>
         </div>
 
+        @if (Auth::check())
         <div class="row mb-2">
             <a href="{{ route('products.create') }}">Dodaj nowy produkt</a>
         </div>
+        @endif
 
         <div class="row">
             @forelse ($products as $product)

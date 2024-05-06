@@ -5,7 +5,7 @@
 
     @include('shared.navbar')
 
-    <div id="cukierki" class="container  mt-5 mb-5">
+    <div id="cukierki" class="container mb-5">
         <div class="row m-2 text-center">
           <h1>Cukierek</h1>
         </div>

@@ -6,7 +6,7 @@
 @include('shared.navbar')
 
 
-<div id="zamowienia" class="container mt-5 mb-5" >
+<div id="zamowienia" class="container mb-5" >
     <div class="row">
       <h1>Lista zamowien dla uzytkownika: {{ Auth::user()->name }}</h1>
     </div>

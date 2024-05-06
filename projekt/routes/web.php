@@ -47,8 +47,9 @@ Route::get('/home', [ProductController::class, 'index'])->name('products.home');
 Route::resource('products', ProductController::class);
 
 Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add_to_cart');
-Route::get('/clear-cart', [ProductController::class, 'clear'])->name('clear_cart');
-
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::patch('update-cart', [ProductController::class, 'updatee'])->name('update_cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove_from_cart');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth/login', 'login')->name('login');
