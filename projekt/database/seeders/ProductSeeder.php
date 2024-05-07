@@ -74,7 +74,34 @@ class ProductSeeder extends Seeder
                 'description' => 'firma wwwww',
                 'img' => 'batonik_prod.jpg',
                 'category_id' => 1
-            ]
+            ],
+            [
+                'name' => 'Kitkat',
+                'price' => 1,
+                'available' => 22,
+                'calories' => '456kcal / 100g',
+                'description' => 'firma qqqq',
+                'img' => 'kitkat.jpg',
+                'category_id' => 1
+            ],
+            [
+                'name' => 'Czekolada goplana',
+                'price' => 23,
+                'available' => 12,
+                'calories' => '456kcal / 100g',
+                'description' => 'firma qqqq',
+                'img' => 'czekolada_gop.jpg',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Czekolada milka orzechowa',
+                'price' => 2.3,
+                'available' => 24,
+                'calories' => '456kcal / 100g',
+                'description' => 'firma qqqq',
+                'img' => 'milka.jpg',
+                'category_id' => 2
+            ],
         ]
     );
 }

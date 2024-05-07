@@ -61,3 +61,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
 Route::post('/registration', [AuthController::class, 'registrationPost'])->name('registration.post');
+
+Route::get('/search', [ProductController::class, 'search'])->name('search');

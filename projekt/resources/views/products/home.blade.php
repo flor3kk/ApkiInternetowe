@@ -11,6 +11,15 @@
           <h1>Slodycze</h1>
         </div>
 
+        <div class="row mb-2">
+            <form action="{{ route('search') }}" method="GET" class="form-inline">
+                <div class="form-group">
+                    <input type="text" name="query" class="form-control" placeholder="Wyszukaj produkt...">
+                </div>
+                <button type="submit" class="btn btn-primary">Szukaj</button>
+            </form>
+        </div>
+
         @if (Auth::check())
         <div class="row mb-2">
             <a href="{{ route('products.create') }}">Dodaj nowy produkt</a>

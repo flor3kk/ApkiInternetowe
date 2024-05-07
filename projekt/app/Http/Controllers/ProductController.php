@@ -79,8 +79,10 @@ class ProductController extends Controller
 
     public function create(){
 
+        $categories = Category::all();
+
         if (auth()->user()->id === 1) {
-            return view('products.create');
+            return view('products.create', compact('categories'));
         } else {
             alert("BRAK UPRAWNIEN");
             return redirect()->route('products.home');
@@ -146,4 +148,17 @@ class ProductController extends Controller
         return view('cart');
     }
 
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Wyszukaj ogłoszenia zawierające wpisany ciąg znaków w tytule
+        $products = Product::where('name', 'like', '%'.$query.'%')
+                                        ->orWhere('description', 'like', '%'.$query.'%')
+                                        ->get();
+
+        // Przekieruj użytkownika do widoku z wynikami wyszukiwania i zmienna query
+        return view('search', ['products' => $products, 'query' => $query]);
+    }
 }

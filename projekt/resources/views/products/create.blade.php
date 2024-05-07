@@ -49,9 +49,15 @@
 
                     <div class="form-group mb-2">
                         <label for="category_id" class="form-label">Kategoria</label>
-                        <input id="category_id" name="category_id" type="number" class="form-control @if ($errors->first('category_id')) is-invalid @endif" value="{{ old('category_id') }}">
-                        <div class="invalid-feedback">Nieprawidłowy format!</div>
+                        <select id="category_id" name="category_id" class="form-control @if ($errors->first('category_id')) is-invalid @endif">
+                            <option value="">Wybierz kategorię</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected @endif>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">Wybierz kategorię!</div>
                     </div>
+
 
                     <div class="text-center mt-4 mb-4">
                         <input class="btn btn-success" type="submit" value="Wyślij">
