@@ -13,10 +13,11 @@
         <table id="cart" class="table table-hover table-condensed">
             <thead>
                 <tr>
-                    <th style="width:50%">Produkt</th>
+                    <th style="width:40%">Produkt</th>
                     <th style="width:10%">Cena</th>
-                    <th style="width:8%">Waga</th>
-                    <th style="width:22%" class="text-center">Lącznie</th>
+                    <th style="width:10%">Waga</th>
+                    <th style="width:20%" class="text-right">Lącznie</th>
+                    <th style="width:10%"></th>
                     <th style="width:10%"></th>
                 </tr>
             </thead>
@@ -34,32 +35,50 @@
                                 </div>
                             </td>
                             <td data-th="Price">{{ $details['price'] }} zł</td>
-                            <td data-th="Quantity">
-                                <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
-                            </td>
+
+                            <form action="{{ route('update_cart') }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="id" value="{{ $id }}">
+                                <td data-th="Quantity">
+                                    <input type="number" name="quantity" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
+                                </td>
+                                <td class="actions" data-th="">
+                                    <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i> Aktualizuj</button>
+                                </td>
+                            </form>
+
                             <td data-th="Subtotal" class="text-center">{{ $details['price'] * $details['quantity'] }} zł</td>
-                            <td class="actions" data-th="">
-                                <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Usun</button>
-                            </td>
+                            <form action="{{ route('remove_from_cart') }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="id" value="{{ $id }}">
+                                <td class="actions" data-th="">
+                                    <button type="submit" class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Usun</button>
+                                </td>
+                            </form>
+
                         </tr>
                     @endforeach
                 @endif
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="5" class="text-right"><h3><strong>Łącznie {{ $total }} zł</strong></h3></td>
+                    <td colspan="6" class="text-right"><h3><strong>Łącznie {{ $total }} zł</strong></h3></td>
                 </tr>
                 <tr>
-                    <td colspan="5" class="text-right">
-                        <a href="{{ url('/') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kontynuuj zakupy</a>
-                        <button class="btn btn-success"><i class="fa fa-money"></i> Kup</button>
+                    <td colspan="6" class="text-right">
+                        <a href="{{ url('/home') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kontynuuj zakupy</a>
+                        <form action="{{ route('store_order') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-success"><i class="fa fa-money"></i> Kup</button>
+                        </form>
                     </td>
                 </tr>
             </tfoot>
         </table>
 
 @include('shared.footer')
-
 
 
 <!-- Opcjonalny JavaScript -->
@@ -69,45 +88,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <!-- Wtyczka FontAwesome -->
 <script src="https://kit.fontawesome.com/6b3d427563.js" crossorigin="anonymous"></script>
-
-<script>
-    $(document).ready(function(){
-        // Function to handle removing an item from the cart
-        $('.cart_remove').click(function(){
-            var id = $(this).closest('tr').data('id');
-            $.ajax({
-                url: '{{ route("remove_from_cart") }}',
-                method: 'DELETE',
-                data: {
-                    id: id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(data){
-                    location.reload(); // Reload the page after removing item
-                }
-            });
-        });
-
-        // Function to handle updating the quantity of an item in the cart
-        $('.cart_update').change(function(){
-            var id = $(this).closest('tr').data('id');
-            var quantity = $(this).val();
-            $.ajax({
-                url: '{{ route("update_cart") }}',
-                method: 'PATCH',
-                data: {
-                    id: id,
-                    quantity: quantity,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(data){
-                    location.reload(); // Reload the page after updating quantity
-                }
-            });
-        });
-    });
-</script>
-
 
 </body>
 

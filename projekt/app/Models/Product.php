@@ -11,17 +11,17 @@ class Product extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
-        'name', 'price', 'available', 'calories', 'description', 'category_id'];
+        'name', 'price', 'available', 'calories', 'description', 'category_id'
+    ];
 
     protected $attributes = [
         'img' => 'default_slodycz.jpg',
     ];
 
-    public function order(): BelongsTo
+    public function orders(): HasMany
     {
-        return $this->belongsTo(Order::class);
+        return $this->hasMany(Order::class);
     }
 
     public function category(): BelongsTo

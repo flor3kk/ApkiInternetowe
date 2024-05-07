@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
-
+use App\Models\Order;
 use function Laravel\Prompts\alert;
 
 class ProductController extends Controller
@@ -123,8 +123,9 @@ class ProductController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'koszyk zaktualizowany!');
+            session()->flash('success', 'Koszyk zaktualizowany!');
         }
+        return redirect()->route('cart');
     }
 
     public function remove(Request $request)
@@ -135,12 +136,14 @@ class ProductController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'produkt usuniety!');
+            session()->flash('success', 'Produkt usunięty z koszyka!');
         }
+        return redirect()->route('cart');
     }
 
     public function cart()
     {
         return view('cart');
     }
+
 }

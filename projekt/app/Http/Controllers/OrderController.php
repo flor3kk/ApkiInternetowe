@@ -32,4 +32,23 @@ class OrderController extends Controller
         return redirect()->route('orders.show');
     }
 
+
+    public function store(Request $request)
+    {
+        $cart = session('cart');
+
+        foreach ($cart as $productId => $details) {
+            $order = new Order();
+            $order->product_id = $productId;
+            $order->user_id = Auth::id();
+            $order->order_date = now();
+            $order->order_kg = $details['quantity'];
+            $order->order_price = $details['price'] * $details['quantity'];
+            $order->save();
+        }
+
+        session()->forget('cart');
+
+        return redirect()->route('products.home')->with('success', 'Zamówienie zostało złożone pomyślnie!');
+    }
 }

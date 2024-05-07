@@ -28,10 +28,16 @@
                     @forelse ($orders as $order)
                     <tr>
                         <td>{{ $order->id }}</td>
-                        <td scope="row"><a href="{{ route('products.show', $order->product_id) }}">{{ $order->product_id }}</a></td>
+                        <td scope="row">
+                            @if ($order->product)
+                                <a href="{{ route('products.show', $order->product->id) }}">{{ $order->product->name }}</a>
+                            @else
+                                Produkt nieznany
+                            @endif
+                        </td>
                         <td>{{ $order->order_date }}</td>
                         <td>{{ $order->order_kg }} kg</td>
-                        <td>{{ $order->order_price }}</td>
+                        <td>{{ $order->order_price }} zł</td>
                         <td>
                             <form method="POST" action="{{ route('orders.destroy', $order->id) }}">
                                 @csrf

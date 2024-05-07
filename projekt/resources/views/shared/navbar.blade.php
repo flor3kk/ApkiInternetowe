@@ -41,7 +41,7 @@
 
             @if (!Auth::check())
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('registration') }}">Rejestracja</a>
+                <a class="nav-link {{ Request::is('registration') ? 'active' : '' }}" href="{{ route('registration') }}">Rejestracja</a>
             </li>
             @endif
 

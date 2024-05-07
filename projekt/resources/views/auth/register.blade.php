@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="repass" class="form-label">Hasło</label>
+                        <label for="repass" class="form-label">Powtorz Hasło</label>
                         <input id="repass" name="repass" type="password" class="form-control @if ($errors->first('repass')) is-invalid @endif">
                         <div class="invalid-feedback">Nieprawidłowe hasło!</div>
                     </div>

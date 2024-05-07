@@ -51,6 +51,8 @@ Route::get('cart', [ProductController::class, 'cart'])->name('cart');
 Route::patch('update-cart', [ProductController::class, 'updatee'])->name('update_cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove_from_cart');
 
+Route::post('/cart/store', [OrderController::class, 'store'])->name('store_order');
+
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth/login', 'login')->name('login');
     Route::post('/auth/login', 'authenticate')->name('login.authenticate');

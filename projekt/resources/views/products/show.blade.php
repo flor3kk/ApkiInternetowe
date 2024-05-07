@@ -19,6 +19,7 @@
                         <p class="card-text">Opis: {{ $product->description }}</p>
                         <p class="card-text">Kategoria: {{ $product->category->name }}</p>
 
+                        @if (Auth::check())
                         <p><a href="{{ route('products.edit', $product->id) }}">Edytuj</a></p>
 
                         <p>
@@ -29,6 +30,7 @@
                                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" />
                             </form>
                         </p>
+                        @endif
                     </div>
                 </div>
             </div>
