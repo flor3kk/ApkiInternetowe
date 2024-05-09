@@ -47,6 +47,8 @@
                         <div class="invalid-feedback">Nieprawidłowy opis!</div>
                     </div>
 
+
+
                     <div class="form-group mb-2">
                         <label for="category_id" class="form-label">Kategoria</label>
                         <select id="category_id" name="category_id" class="form-control @if ($errors->first('category_id')) is-invalid @endif">
