@@ -15,8 +15,19 @@ class CountryController extends Controller
     public function index()
     {
         $countries = DB::table('countries')->get();
-        return response()->json($countries, 200);
+        $countriesCollection = [];
+        foreach ($countries as $country) {
+            $countriesCollection[] = [
+                'id' => $country->id,
+                'code' => $country->code,
+                'currency' => $country->currency,
+                'area' => $country->area,
+                'language' => $country->language,
+            ];
+        }
+        return response()->json($countriesCollection, 200);
     }
+
 
     /**
      * Display the specified resource.
@@ -29,7 +40,9 @@ class CountryController extends Controller
             return response()->json(['error' => 'Country not found'], 404);
         }
 
-        return response()->json($country, 200);
+        $transformedCountry = $this->transformCountry($country);
+
+        return response()->json($transformedCountry, 200);
     }
 
     /**
@@ -88,8 +101,9 @@ class CountryController extends Controller
         }
 
         $updatedCountry = DB::table('countries')->find($id);
+        $transformedCountry = $this->transformCountry($updatedCountry);
 
-        return response()->json($updatedCountry, 200);
+        return response()->json($transformedCountry, 200);
     }
 
     /**
@@ -106,5 +120,20 @@ class CountryController extends Controller
         DB::table('countries')->where('id', $id)->delete();
 
         return response()->json(null, 204);
+    }
+
+    /**
+     * Transform country object into desired format.
+     */
+    private function transformCountry($country)
+    {
+        return [
+            'id' => $country->id,
+            'name' => $country->name,
+            'code' => $country->code,
+            'currency' => $country->currency,
+            'area' => $country->area,
+            'language' => $country->language,
+        ];
     }
 }
