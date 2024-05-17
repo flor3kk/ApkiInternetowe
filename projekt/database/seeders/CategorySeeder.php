@@ -12,18 +12,17 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-    Schema::withoutForeignKeyConstraints(function () {
-        Category::truncate();
-    });
+        Schema::withoutForeignKeyConstraints(function () {
+            Category::truncate();
+        });
 
-    Category::insert(
-        [
-            ['name' => 'batony',],
-            ['name' => 'lody',],
-            ['name' => 'czekolady',],
-            ['name' => 'cukierki',],
-            ['name' => 'zelki',],
-        ]
-    );
-}
+        Category::insert([
+            ['name' => 'batony'],
+            ['name' => 'lody'],
+            ['name' => 'czekolady'],
+            ['name' => 'cukierki'],
+            ['name' => 'zelki'],
+            ['name' => 'ciastka'],
+        ]);
+    }
 }

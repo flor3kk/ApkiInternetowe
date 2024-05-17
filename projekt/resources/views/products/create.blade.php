@@ -18,6 +18,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <form method="POST" action="{{ route('products.store') }}" class="needs-validation" novalidate>
+
                     @csrf
                     <div class="form-group mb-2">
                         <label for="name" class="form-label">Nazwa</label>
@@ -47,8 +48,6 @@
                         <div class="invalid-feedback">Nieprawidłowy opis!</div>
                     </div>
 
-
-
                     <div class="form-group mb-2">
                         <label for="category_id" class="form-label">Kategoria</label>
                         <select id="category_id" name="category_id" class="form-control @if ($errors->first('category_id')) is-invalid @endif">
@@ -59,7 +58,6 @@
                         </select>
                         <div class="invalid-feedback">Wybierz kategorię!</div>
                     </div>
-
 
                     <div class="text-center mt-4 mb-4">
                         <input class="btn btn-success" type="submit" value="Wyślij">

@@ -3,9 +3,9 @@
         <div class="row text-center" style="margin: 0 !important;">
           <div class="col-12">
             <ul class="list-inline">
-              <li class="list-inline-item"><a href="https://www.facebook.com/candydotcom" target="_blank"><i class="fab fa-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="https://www.instagram.com/candydotcom/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/candydotcom" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.facebook.com/CandyShopPolska/?locale=pl_PL" target="_blank"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/Candy_Shop_Poland/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://x.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
             </ul>
             <ul class="list-inline">
               <li class="list-inline-item"><a href="faq">Najczęściej zadawane pytania</a></li>

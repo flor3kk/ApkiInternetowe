@@ -47,13 +47,13 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        // KAZDY MZOE USUWAC
-        // $product->delete();
-        // return redirect()->route('products.home');
-
         if (auth()->user()->id === 1) {
+            if ($product->orders()->count() > 0) {
+                return redirect()->route('products.home')->with('error', 'nie mozna usunac produktow ktore zostaly zamowione.');
+            }
+
             $product->delete();
-            return redirect()->route('products.home');
+            return redirect()->route('products.home')->with('success', 'produkt usuniety pomyslnie.');
         } else {
             alert("BRAK UPRAWNIEN");
             return redirect()->route('products.home');

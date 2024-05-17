@@ -11,6 +11,18 @@
           <h1>Slodycze</h1>
         </div>
 
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="row mb-2">
             <form action="{{ route('search') }}" method="GET" class="form-inline">
                 <div class="form-group">
