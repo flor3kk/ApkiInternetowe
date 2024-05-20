@@ -18,7 +18,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return new CountryCollection(Country::all()); // 200
+        return new CountryCollection(Country::with('trips')->get()); // 200
     }
 
     // 405 method not allowed, jesli chcemy dodac kraj o specyficznym naszym wybranym id
@@ -36,7 +36,7 @@ class CountryController extends Controller
      */
     public function show(Country $country) //error 404 not found
     {
-        return new CountryResource($country); // 200
+        return new CountryResource($country->loadMissing('trips')); // 200
     }
 
 

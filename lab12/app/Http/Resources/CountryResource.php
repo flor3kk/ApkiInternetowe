@@ -24,6 +24,7 @@ class CountryResource extends JsonResource
             'language' => $this->language,
             //'created_at' => $this->created_at,
             //'updated_at' => $this->updated_at,
+            'trips' => TripResource::collection($this->whenLoaded('trips')),
            ];
     }
 }

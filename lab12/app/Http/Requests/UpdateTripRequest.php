@@ -11,7 +11,7 @@ class UpdateTripRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateTripRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|unique:trips,name,'.$this->trip->id.'|max:50',
+            'continent' => 'required|string|max:50',
+            'period' => 'required|integer|min:0',
+            'description' => 'required|string|max:200',
+            'price' => 'required|integer|min:0',
+            'img' => 'required|string|min:0',
+            'country_id' => 'required|integer|min:0'
         ];
     }
 }

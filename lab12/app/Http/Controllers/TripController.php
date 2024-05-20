@@ -16,6 +16,7 @@ class TripController extends Controller
     public function index()
     {
         return new TripCollection(Trip::all()); // 200
+        //return new TripCollection(Trip::paginate(3)); // 200
     }
 
     /**
@@ -23,7 +24,7 @@ class TripController extends Controller
      */
     public function store(StoreTripRequest $request)
     {
-        return response()->json(new TripResource(Country::create($request->validated())), 201);
+        return response()->json(new TripResource(Trip::create($request->validated())), 201);
     }
 
     /**
