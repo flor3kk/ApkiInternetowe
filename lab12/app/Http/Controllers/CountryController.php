@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\CountryResource;
+use App\Http\Resources\CountryCollection;
+use App\Models\Country;
+use App\Http\Requests\StoreCountryRequest;
+use App\Http\Requests\UpdateCountryRequest;
 
 class CountryController extends Controller
 {
@@ -13,147 +18,44 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = DB::table('countries')->get();
-
-        $countriesCollection = [];
-        foreach ($countries as $country) {
-            $countriesCollection[] = [
-                'id' => $country->id,
-                'code' => $country->code,
-                'currency' => $country->currency,
-                'area' => $country->area,
-                'language' => $country->language,
-                // '_links' => [
-                //     'self' => [
-                //         'href' => url()->current()."/{$country->id}"
-                //     ]
-                // ]
-            ];
-        }
-
-        return $countriesCollection; // 200
+        return new CountryCollection(Country::all()); // 200
     }
+
+    // 405 method not allowed, jesli chcemy dodac kraj o specyficznym naszym wybranym id
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCountryRequest $request) //error 422 unprocessable content
     {
-        $inputs = [
-            'name' => $request->input('name'),
-            'code' => $request->input('code'),
-            'currency' => $request->input('currency'),
-            'area' => $request->input('area'),
-            'language' => $request->input('language')
-        ];
-
-        $rules = [
-            'name' => 'required|string|unique:countries,name,|max:50',
-            'code' => 'required|string|unique:countries,code,|max:3',
-            'currency' => 'required|string|max:30',
-            'area' => 'required|integer|min:0',
-            'language' => 'required|string|max:50',
-        ];
-
-        $validator = Validator::make($inputs, $rules);
-        if($validator->fails()) {
-            return response($validator->errors(), 422); //lub 400
-        }
-
-        $id = DB::table('countries')->insertGetId($inputs);
-
-        $country = DB::table('countries')->find($id);
-
-        $countryResource = [
-            'id' => $country->id,
-            'code' => $country->code,
-            'currency' => $country->currency,
-            'area' => $country->area,
-            'language' => $country->language,
-        ];
-
-        return response()->json($countryResource, 201);
+        return response()->json(new CountryResource(Country::create($request->validated())), 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(int $id)
+    public function show(Country $country) //error 404 not found
     {
-        $country = DB::table('countries')->find($id);
-        if ($country == null) {
-            return response(null, 404);
-        }
-
-        $countryResource = [
-            'id' => $country->id,
-            'code' => $country->code,
-            'currency' => $country->currency,
-            'area' => $country->area,
-            'language' => $country->language,
-        ];
-
-        return $countryResource; // 200
+        return new CountryResource($country); // 200
     }
+
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateCountryRequest $request, Country $country) //error 422 unprocessable content, 404 not found
     {
-        $country = DB::table('countries')->find($id);
-        if ($country == null) {
-            return response(null, 404);
-        }
-
-        $inputs = [
-            'name' => $request->input('name'),
-            'code' => $request->input('code'),
-            'currency' => $request->input('currency'),
-            'area' => $request->input('area'),
-            'language' => $request->input('language')
-        ];
-
-        $rules = [
-            'name' => 'required|string|unique:countries,name,'.$id.'|max:50',
-            'code' => 'required|string|unique:countries,code,'.$id.'|max:3',
-            'currency' => 'required|string|max:30',
-            'area' => 'required|integer|min:0',
-            'language' => 'required|string|max:50',
-        ];
-
-        $validator = Validator::make($inputs, $rules);
-        if($validator->fails()) {
-            return response($validator->errors(), 422); //lub 400
-        }
-
-        DB::table('countries')->where('id', $id)->update($inputs);
-
-        $country = DB::table('countries')->find($id);
-
-        $countryResource = [
-            'id' => $country->id,
-            'code' => $country->code,
-            'currency' => $country->currency,
-            'area' => $country->area,
-            'language' => $country->language,
-        ];
-
-        return $countryResource; // 200
+        $country->update($request->validated());
+        return new CountryResource($country->refresh()); // 200
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id)
+    public function destroy(Country $country) // jesli nie ma takiego kraju to 404,
     {
-        $country = DB::table('countries')->find($id);
-        if ($country == null) {
-            return response(null, 404);
-        }
-
-        DB::table('countries')->delete($id);
-
+        $country->delete();
         return response()->json(null, 204);
     }
 }
