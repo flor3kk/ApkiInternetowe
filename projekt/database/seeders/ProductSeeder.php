@@ -54,7 +54,7 @@ class ProductSeeder extends Seeder
                 'available' => 25,
                 'calories' => '456kcal / 100g',
                 'description' => 'firma mmmmm',
-                'img' => 'czekolada_prod.png',
+                'img' => 'czekolada_prod.jpg',
                 'category_id' => 3
             ],
             [
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
                 'available' => 200,
                 'calories' => '456kcal / 100g',
                 'description' => 'firma qqqq',
-                'img' => 'lody.png',
+                'img' => 'lody.jpg',
                 'category_id' => 2
             ],
             [
