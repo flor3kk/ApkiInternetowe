@@ -35,19 +35,22 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($ID_produktu);
         $categories = Category::all();
+        $user = auth()->user();
 
-        if (auth()->user()->id === 1) {
+        if ($user && ($user->id === 1)) {
             return view('products.edit', compact('product', 'categories'));
         } else {
             alert("BRAK UPRAWNIEN");
-            return redirect()->route('products.home');
+            return redirect()->route('login.authenticate');
         }
     }
 
 
     public function destroy(Product $product)
     {
-        if (auth()->user()->id === 1) {
+        $user = auth()->user();
+
+        if ($user && ($user->id === 1)) {
             if ($product->orders()->count() > 0) {
                 return redirect()->route('products.home')->with('error', 'nie mozna usunac produktow ktore zostaly zamowione.');
             }
@@ -56,7 +59,7 @@ class ProductController extends Controller
             return redirect()->route('products.home')->with('success', 'produkt usuniety pomyslnie.');
         } else {
             alert("BRAK UPRAWNIEN");
-            return redirect()->route('products.home');
+            return redirect()->route('login.authenticate');
         }
     }
 
@@ -80,12 +83,13 @@ class ProductController extends Controller
     public function create(){
 
         $categories = Category::all();
+        $user = auth()->user();
 
-        if (auth()->user()->id === 1) {
+        if ($user && ($user->id === 1)) {
             return view('products.create', compact('categories'));
         } else {
             alert("BRAK UPRAWNIEN");
-            return redirect()->route('products.home');
+            return redirect()->route('login.authenticate');
         }
 
         // KAZDY MOZE DODAWAC

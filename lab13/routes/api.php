@@ -6,7 +6,7 @@ use App\Http\Controllers\TripController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('countries', CountryController::class);
+Route::apiResource('countries', CountryController::class)->middleware('jwt.auth');
 Route::apiResource('trips', TripController::class);
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
