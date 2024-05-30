@@ -9,23 +9,45 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('welcome') ? 'active' : '' }}" href="{{ url('welcome') }}">Strona głowna</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ url('home') }}">Produkty</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('about') }}">O nas</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('gallery') ? 'active' : '' }}" href="{{ url('gallery') }}">Galeria</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ url('contact') }}">Kontakt</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('chart') ? 'active' : '' }}" href="{{ url('chart') }}">Wykres</a>
+            </li>
+
+            @if(auth()->check() && auth()->user()->id == 1)
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('users') ? 'active' : '' }}" href="{{ url('users') }}">Lista uzytkownikow</a>
+            </li>
+            @endif
+
+            @if (Auth::check() && auth()->user()->id != 1)
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('info') ? 'active' : '' }}" href="{{ url('info') }}">Informacje o koncie: {{ Auth::user()->name }} </a>
+            </li>
+            @endif
+
             @if (Auth::check())
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('orders') ? 'active' : '' }}" href="{{ url('orders') }}">Zamowienia uzytkownika: {{ Auth::user()->name }}</a>
             </li>
             @endif
+
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">

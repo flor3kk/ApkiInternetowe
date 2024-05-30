@@ -39,6 +39,17 @@ Route::get('/priceList', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
 });
+
+Route::get('/chart', [OrderController::class, 'index']);
+
+Route::get('/users', [OrderController::class, 'listOfUsers'])->name('orders.listOfUsers');
+Route::delete('/users/{id}', [OrderController::class, 'deleteUser'])->name('orders.deleteUser');
+
+
+Route::get('/info', [OrderController::class, 'showUserDetails'])->name('info');
+Route::get('/info/edit', [OrderController::class, 'edit'])->name('userEdit');
+Route::put('/info/update/{user}', [OrderController::class, 'update'])->name('userUpdate');
+
 // NIE RUSZAC
 Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
